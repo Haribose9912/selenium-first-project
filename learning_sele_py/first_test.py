@@ -73,7 +73,5 @@ driver.quit()
 # else:
 #     print("Login fail")
 #
-# time.sleep(2)
-# driver.close()
 
 
