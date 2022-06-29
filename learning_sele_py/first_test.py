@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 from selenium.webdriver.chrome.service import Service ##for selenium 4
 from selenium.webdriver.common.by import By ##for selenium 4
-from selenium.webdriver.support.wait import webdriverWait
+# from selenium.webdriver.support.wait import webdriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # selenium 4
@@ -20,7 +20,7 @@ time.sleep(1)
 print("username and password has been entered")
 driver.find_element(By.XPATH,"//button[@onclick='logIn()']").click()
 print("successfully Logged In...")
-
+print("This is the current url : "+driver.current_url)
 actual_title=driver.title
 expected_title="STORE"
 print("This is the title expected: "+expected_title)
@@ -29,14 +29,14 @@ if actual_title==expected_title:
     print("Login sucess")
 else:
     print("Login fail")
-
+print(driver.page_source)
 images = driver.find_elements(By.CLASS_NAME,'modal fade')
 print(len(images))
 link_text=driver.find_elements(By.LINK_TEXT,"PRODUCT STORE")
 print(len(link_text))
 links=driver.find_elements(By.TAG_NAME,'a')
 print(len(links))
-mywait=webdriverWait(driver,10)
+# mywait=webdriverWait(driver,10)
 # mywait.until(EC.text_to_be_present_in_element())
 time.sleep(2)
 driver.close()
